@@ -85,6 +85,7 @@
 html{
   font-size: 75%;
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 }
 /* idioma */
 .language-switcher {
@@ -1161,7 +1162,9 @@ label.error{
   padding: 0 20px;
   text-align: right;
 }
-
+.rev_slider_wrapper {
+  position: relative; /* Asegura que las flechas se posicionen dentro de este contenedor */
+}
 .arrow-left,
 .arrow-right{
   position: absolute;
@@ -1175,11 +1178,14 @@ label.error{
 
 .arrow-left{
   left: 22vmin;
+ 
 }
 
 .arrow-right{
   right: 15px;
 }
+
+
 
 .arrow-left:after,
 .arrow-right:before{
@@ -1576,6 +1582,36 @@ label.error{
   transform:scale(1);
 }
 
+/* Este es el estilo específico para el botón "View Project" */
+#view-project-btn {
+  display: block;
+  margin: 20px auto;  /* Esto centra el botón horizontalmente */
+  padding: 10px 20px;
+  background-color: rgb(255, 144, 76);  /* Ajusta el color de fondo */
+  color: #fff;  /* Color del texto */
+  text-align: center;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;  /* Añade transición suave al color de fondo */
+}
+
+/* Efecto hover para el botón */
+#view-project-btn:hover {
+  background-color: #272727;  /* Cambia el color del fondo al pasar el mouse */
+}
+
+/* Si quieres mover el botón en relación a su contenedor, usa position absolute */
+.project figure {
+  position: relative;  /* Asegura que el botón se posicione en relación a su contenedor */
+}
+
+#view-project-btn {
+  position: absolute;
+  bottom: 20px;  /* Ajusta la distancia desde el fondo del contenedor */
+  left: 50%;  /* Centra el botón horizontalmente */
+  transform: translateX(-50%);  /* Corrección para centrarlo exactamente */
+}
 
 
 /* 5.1 Carousel */
@@ -2589,6 +2625,7 @@ h6, .h6 {
 
   html{
     font-size: 85%;
+    scroll-behavior: smooth;
   }
 
 
@@ -2686,6 +2723,7 @@ h6, .h6 {
 
   html{
     font-size: 92%;
+    scroll-behavior: smooth;
   }
 
 
@@ -2789,6 +2827,7 @@ h6, .h6 {
 
    html{
     font-size: 100%;
+    scroll-behavior: smooth;
   }
 
 

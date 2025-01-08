@@ -68,7 +68,7 @@ rel="stylesheet">
           <sup><span class="delimiter">/</span> 0<span class="total-count"></span></sup>
         </div>
       </div>
-      <div class="header-phone">+112 111 111 1111
+      <div class="header-phone">
         <div class="language-switcher">
           <button id="btn-en" class="btn-language">EN</button>
           <button id="btn-es" class="btn-language">ES</button>
@@ -96,21 +96,17 @@ rel="stylesheet">
           <ul class="navbar-desctop-menu">
             <li class="active">
               <a href="#top2">Home</a>
-
             </li>
-            <!-- <li>
-              <a href="#about">About us</a>
-            </li> -->
+             <li>
+            </li> 
             <li>
-              <a href="projects.html">Projects</a>
-
+              <a href="javascript:void(0);" class="scroll-link" data-target="projects">Projects</a>
             </li>  
-            <!-- <li>
-              <a href="blog.html">Blog</a>
-
-            </li> -->
+             <li>
+              <a href="javascript:void(0);" class="scroll-link" data-target="services">Services</a>
+            </li> 
             <li>
-              <a href="contacts.html">Contacts</a>
+              <a href="contact.html">Contacts</a>
             </li>
           </ul>
         </div>
@@ -162,7 +158,7 @@ rel="stylesheet">
     <!-- Home -->
     
     <main class="main">
-
+      <!--flechas de derecha e izquirda  -->
       <div class="arrow-left"></div>
       <div class="arrow-right"></div>
 
@@ -431,7 +427,7 @@ rel="stylesheet">
 
       <!-- Projects -->
 
-      <section class="projects section">
+      <section id ="projects" class="projects section">
         <div class="container">
           <h2 id="projects-title" class="section-title">Our <span class="text-primary">projects</span></h2>
         </div>
@@ -449,6 +445,8 @@ rel="stylesheet">
                       Sample Text
                     </h4>
                     <div class="project-zoom"></div>
+              
+            
                   </figcaption>
                 </figure>
               </a>
@@ -465,6 +463,7 @@ rel="stylesheet">
                       Sample Text
                     </h4>
                     <div class="project-zoom"></div>
+                    
                   </figcaption>
                 </figure>
               </a>
@@ -566,7 +565,11 @@ rel="stylesheet">
               </a>
             </div>
           </div>
+            <!-- Add a button here -->
+             
+          <a href="projects.html" class="btn btn-primary" id="view-project-btn" >View Project</a> 
         </div>
+       
       </section>
 
       <!-- Experience -->
@@ -579,15 +582,18 @@ rel="stylesheet">
           <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
         </div>
       </section>
-  <!-- cosas -->
-  <div class="services-section section bg-light">
+
+  <!-- services -->
+  <div id="services" class="services-section section bg-light">
     <div class="container">
       <div class="hstack gap-1 justify-content-center section-title mb-3">
-        <!-- <span class="fa-solid fa-grip-lines text-primary"></span> -->
-        <h2 class="section-title">Our <span class="text-primary">Services</span></h2>
+        <div class="container">
+          <h2 id="projects-title" class="section-title">Our <span class="text-primary">services</span></h2>
+        </div>
+        <!-- <h2 class="section-title">Our <span class="text-primary">Services</span></h2> -->
       </div>
-      <p></p>
-      <p></p>
+     
+      <div class="section-content">
       <div class="row row-cols-1 row-cols-lg-3 g-4">
         <div class="col">
           <div class="image-card card shadow border-0">
@@ -655,6 +661,7 @@ rel="stylesheet">
       </div>
     </div>
   </div>
+</div>
       <!-- Clients  -->
 
       <section class="clients section">
@@ -705,7 +712,7 @@ rel="stylesheet">
 
       <!-- Contacts -->
 
-      <section class="contacts section">
+      <!-- <section class="contacts section">
         <div class="container">
           <header class="section-header">
             <h2 class="section-title">Get <span class="text-primary">in touch</span></h2>
@@ -756,18 +763,15 @@ rel="stylesheet">
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     
-
       <!-- Footer -->
 
       <footer id="footer" class="footer">     
         <div class="container">
           <img src="img/logo 2.png" alt="Logo" width="100" height="100"> 
           <div class="row-base row">
-            
             <div class="col-base text-left-md col-md-4"> 
-           
               <a href="#" class="brand">
                <p>construction Engineering</p>
               </a>
@@ -829,13 +833,85 @@ rel="stylesheet">
 <script src="js/rev-slider/revolution.extension.slideanims.min.js"></script>
 <script src="js/rev-slider/revolution.extension.video.min.js"></script>
 <script src="js/interface.js"></script> 
+
+
+<!-- script para efectos e idioma -->
+<script>
+ // Seleccionar todos los enlaces con la clase 'scroll-link'
+ const scrollLinks = document.querySelectorAll('.scroll-link');
+
+ // Agregar un listener a cada enlace
+ scrollLinks.forEach(link => {
+   link.addEventListener('click', function (event) {
+     event.preventDefault(); // Prevenir el comportamiento predeterminado
+
+     // Obtener el ID de destino desde el atributo 'data-target'
+     const targetId = this.getAttribute('data-target');
+     const targetSection = document.getElementById(targetId);
+
+     if (targetSection) {
+       // Calcular posición con offset
+       const offset = -80; // Ajusta este valor si es necesario
+       const sectionPosition = targetSection.getBoundingClientRect().top + window.pageYOffset + offset;
+
+       // Desplazar suavemente
+       window.scrollTo({
+         top: sectionPosition,
+         behavior: 'smooth',
+       });
+     }
+   });
+ });
+</script>
+
+
+<!-- script para le boton de project -->
+
+<!-- Add JavaScript to show the button when the image is opened -->
+<script>
+  document.querySelectorAll('.project-zoom').forEach((zoomButton) => {
+    zoomButton.addEventListener('click', function(e) {
+      // Prevent the default zoom behavior (if any) and allow custom logic
+      e.preventDefault();
+      
+      // Get the closest figure element
+      const figure = e.target.closest('figure');
+      const button = figure.querySelector('.project-button');
+      
+      // Simulate opening the image (lightbox or zoom)
+      figure.classList.add('zoomed'); // You can add a class or use any zoom functionality
+
+      // Show the button once the image is zoomed
+      button.style.display = 'block';
+    });
+  });
+
+  // If you want to hide the button when the image is closed, you can add a listener for closing
+  // (You would need to add your own logic or use a lightbox's close event)
+  document.querySelectorAll('.close-zoom').forEach((closeButton) => {
+    closeButton.addEventListener('click', function(e) {
+      const figure = e.target.closest('figure');
+      const button = figure.querySelector('.project-button');
+      
+      // Hide the button again when zoom is closed
+      button.style.display = 'none';
+      
+      // Remove zoomed class or logic to close zoom
+      figure.classList.remove('zoomed');
+    });
+  });
+</script>
+
+<!-- IDIOMAS -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     // Obtener los elementos del menú
     const menuItems = {
+      // <a href="contact.html">Contacts</a>
       home: document.querySelector("a[href='#top2']"),
-      projects: document.querySelector("a[href='projects.html']"),
-      contacts: document.querySelector("a[href='contacts.html']")
+      projects: document.querySelector("a.scroll-link[data-target='projects']"),
+      services: document.querySelector("a.scroll-link[data-target='services']"),
+      contacts: document.querySelector("a[href='contact.html']")
     };
 
   // Obtener los elementos de texto del slider
@@ -872,6 +948,7 @@ rel="stylesheet">
       if (language === 'es') {
         menuItems.home.textContent = "Inicio";
         menuItems.projects.textContent = "Proyectos";
+        menuItems.services.textContent = "Servicios";
         menuItems.contacts.textContent = "Contactos";
         
        
@@ -902,6 +979,7 @@ rel="stylesheet">
       } else if (language === 'en') {
         menuItems.home.textContent = "Home";
         menuItems.projects.textContent = "Projects";
+        menuItems.services.textContent = "Services";
         menuItems.contacts.textContent = "Contacts";
        
         
