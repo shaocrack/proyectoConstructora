@@ -52,59 +52,93 @@
   <link rel="stylesheet" href="css/style_boottask2.css">
 </head>
 <style>
-  .card {
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .card-img-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px 10px 0 0;
-  }
-  
-  .card-img-top {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-  }
-  
-  .card:hover .card-img-top {
-    transform: scale(1.1);
-  }
-  
-  .card-img-overlay {
-    position: absolute;
+   /* Header con posición fija */
+   header {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
   }
-  
-  .card:hover .card-img-overlay {
-    opacity: 1;
-  }
-  
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-  
 
+  /* Compensar la altura del header */
+  main {
+    margin-top: 80px; /* Ajusta este valor a la altura de tu header */
+  }
+
+  header, footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 1rem;
+  }
+
+  header a, footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .section {
+    padding: 2rem 1rem;
+  }
+
+  .section h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .service-section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .service-text {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .service-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .service-text p {
+    margin-bottom: 1rem;
+  }
+
+  .service-image {
+    flex: 1;
+    text-align: center;
+  }
+
+  .service-image img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
 </style>
+
+
 <body>
 <header>
   <nav class="navbar navbar-expand-md px-0 px-lg-4 fixed-top bg-primary" id="top-navbar">
@@ -159,114 +193,142 @@
   </nav>
 </header>
 
-<main class="container mt-5">
-  <div>
-<!-- section d -->
-<section class="d">
-  <div class="services" id="services">
-    <div class="head">
-      <h1>Services</h1>
-      <p>
-        Voluptatem quibusdam ut ullam perferendis repellat non ut
-        consequuntur est eveniet deleniti fignissimos eos quam
-      </p>
+<main>
+  <style>
+    .section {
+      padding: 3rem 1rem;
+    }
+
+    .service-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      gap: 2rem;
+    }
+
+    /* Alternar dirección para secciones pares */
+    .service-section:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    .service-text {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .service-text h3 {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 1rem;
+    }
+
+    .service-text p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #555;
+    }
+
+    .service-text ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+
+    .service-text ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .service-image {
+      flex: 1;
+      text-align: center;
+    }
+
+    .service-image img {
+      max-width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .service-image img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+  <section id="residential" class="section">
+    <div class="service-section">
+      
+      <div class="service-image">
+        <img src="img/construction.jpg" alt="Residential Developments">
+      </div>
+      <div class="service-text">
+        <h3>Residential Developsments</h3>
+        <p>We specialize in creating beautiful and functional residential spaces, including:</p>
+        <ul>
+          <li>Bungalows</li>
+          <li>Maisonettes, Villas, Townhouses, Mansions</li>
+          <li>Apartments</li>
+        </ul>
+        
+      </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="service">
-            <p>
-              <span><i class="fa-solid fa-mountain-city"></i></span>
-              <div class="circle"></div>
-            </p>
-            <h2>Nesciunt Mete</h2>
-            <p>
-              Provident nihil minus qui consequatur non omnis maiores. Eos
-              accusantium minus dolores iure perferendis tempore et
-              consequatur.
-            </p>
-            <h3>
-              Learn more<svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                />
-              </svg>
-            </h3>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="service">
-            <p>
-              <span
-                ><i class="fa-solid fa-arrow-up-from-ground-water"></i
-              ></span>
-              <div class="circle"></div>
-            </p>
-            <h2>Eosle Commodi</h2>
-            <p>
-              Eosle Commodi Ut autem aut autem non a. Sint sint sit facilis
-              nam iusto sint. Libero corrupti neque eum hic non ut nesciunt
-              dolorem.
-            </p>
-            <h3>
-              Learn more<svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                />
-              </svg>
-            </h3>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 col-12">
-          <div class="service">
-            <p>
-              <span><i class="fa-solid fa-compass-drafting"></i></span>
-              <div class="circle"></div>
-            </p>
-            <h2>Ledo Markt</h2>
-            <p>
-              Ut excepturi voluptatem nisi sed. Quidem fuga consequatur.
-              Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.
-            </p>
-            <h3>
-              Learn more<svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-arrow-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"
-                />
-              </svg>
-            </h3>
-          </div>
-        </div>
-       
-</section>
+  </section>
 
+  <section id="commercial" class="section">
+    <div class="service-section">
+      <div class="service-text">
+        <h3>Commercial Developments</h3>
+        <p>We design and build outstanding commercial spaces tailored to your business needs, such as:</p>
+        <ul>
+          <li>Offices</li>
+          <li>Mixed-use Developments</li>
+          <li>Restaurants and Hotels</li>
+          <li>Warehouses</li>
+        </ul>
+   
+      </div>
+      <div class="service-image">
+        <img src="img/architecture.jpg" alt="Commercial Developments">
+      </div>
+    </div>
+  </section>
 
-  </div>
+  <section id="institutional" class="section">
+    <div class="service-section">
+      
+      <div class="service-image">
+        <img src="img/interior-design.jpg" alt="Institutional Developments">
+      </div>
+      <div class="service-text">
+        <h3>Institutional Developments</h3>
+        <p>Our expertise extends to designing and constructing world-class institutional facilities, including:</p>
+        <ul>
+          <li>Schools</li>
+          <li>Hospitals</li>
+        </ul>
+      
+      </div>
+    </div>
+  </section>
 </main>
+
+
 <div class="bg-dark">
   <footer class="py-1 container">
     <div class="row">
@@ -296,66 +358,15 @@
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 <script>
-  // Obtener la sección desde la URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const section = urlParams.get('section');
-
-  // Contenido de las secciones
-  const sections = {
-    engineering: {
-      title: "Procesos de Ingeniería",
-      cards: [
-        { title: "Proceso 1", description: "Descripción del proceso 1." },
-        { title: "Proceso 2", description: "Descripción del proceso 2." },
-        { title: "Proceso 3", description: "Descripción del proceso 3." },
-        { title: "Proceso 4", description: "Descripción del proceso 4." },
-        { title: "Proceso 5", description: "Descripción del proceso 5." }
-      ]
-    },
-    materials: {
-      title: "Materiales de Construcción",
-      cards: [
-        { title: "Material 1", description: "Descripción del material 1." },
-        { title: "Material 2", description: "Descripción del material 2." },
-        { title: "Material 3", description: "Descripción del material 3." },
-        { title: "Material 4", description: "Descripción del material 4." },
-        { title: "Material 5", description: "Descripción del material 5." }
-      ]
-    },
-    construction: {
-      title: "Materiales Especializados",
-      cards: [
-        { title: "Especialidad 1", description: "Descripción de especialidad 1." },
-        { title: "Especialidad 2", description: "Descripción de especialidad 2." },
-        { title: "Especialidad 3", description: "Descripción de especialidad 3." },
-        { title: "Especialidad 4", description: "Descripción de especialidad 4." },
-        { title: "Especialidad 5", description: "Descripción de especialidad 5." }
-      ]
+  // Scroll to specific section based on URL hash
+  document.addEventListener("DOMContentLoaded", function () {
+    const hash = window.location.hash;
+    if (hash) {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
     }
-  };
-
-  // Seleccionar sección y renderizar contenido
-  const sectionData = sections[section] || sections.engineering;
-  document.getElementById('section-title').textContent = sectionData.title;
-
-  const sectionContent = document.getElementById('section-content');
-  sectionData.cards.forEach(card => {
-    const cardHTML = `
-  <div class="col-md-4">
-    <div class="card border-0 shadow-lg h-100">
-      <div class="card-img-container position-relative">
-        <img src="https://via.placeholder.com/300x200" class="card-img-top rounded" alt="${card.title}">
-        <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center bg-dark bg-opacity-50 text-white opacity-0">
-          <p class="text-center px-3">${card.description}</p>
-        </div>
-      </div>
-      <div class="card-body text-center">
-        <h5 class="card-title">${card.title}</h5>
-      </div>
-    </div>
-  </div>`;
-sectionContent.insertAdjacentHTML('beforeend', cardHTML);
-
   });
 </script>
 
