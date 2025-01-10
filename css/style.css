@@ -2515,7 +2515,52 @@ img.mfp-img{
       }
     }
   }
+  /* para servuicios */
+  .card:hover .card-text {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s;
+  }
   
+  .card-text {
+    display: none;
+    opacity: 0;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .card-overlay {
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .card:hover .card-overlay {
+    opacity: 1;
+  }
+  
+
+  /*  */
 
   /* Se asegura de que no haya margen horizontal adicional en la última columna */
   @media (max-width: 768px) {

@@ -34,7 +34,60 @@
   <!--  custom styles-->
   <link rel="stylesheet" href="css/style2.css">
 </head>
+<style>
+  .card {
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-img-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+  }
+  
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .card:hover .card-img-overlay {
+    opacity: 1;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+  
 
+</style>
 <body>
 <header>
   <nav class="navbar navbar-expand-md px-0 px-lg-4 fixed-top bg-primary" id="top-navbar">
@@ -62,12 +115,12 @@
               <a class="nav-link" href="projects.html">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link " href="services.html">Service</a>
-            </li>
+                <a class="nav-link active" href="#">Service</a>
+              </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Contact</a>
+              <a class="nav-link " href="contact.html">Contact</a>
             </li>
-           
+            
           </ul>
           <ul class="navbar-nav align-items-start align-items-md-center">
             <li class="nav-item">
@@ -88,37 +141,15 @@
     </div>
   </nav>
 </header>
-<main>
-  <div class="container mt-5">
-    <div class="section">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Contact Details</h5>
-        </div>
-        <div class="card-body">
-          <p class="card-text">Mijail Mayorga</p>
-          <p class="card-text">Ecuador</p>
-        </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-around">
-            <div class="">
-              <span>Tel:</span>
-              <a href="#">+ 254 794 574 661</a>
-            </div>
-            <div class="">
-              <span>Email:</span>
-              <a href="#">mmg84@icloud.com</a>
-            </div>
-            <!-- <div class="">
-              <span>Website:</span>
-              <a href="#">www.debcolimited.com</a>
-            </div> -->
-          </div>
-        </div>
-      </div>
+<main class="container mt-5">
+    <h1 id="section-title" class="text-center mb-4">Cargando...</h1>
+    <div id="section-content" class="row gy-4">
+      <!-- Tarjetas dinámicas -->
     </div>
-  </div>
-</main>
+    <div class="text-center mt-4">
+      <a href="catalogo.pdf" download class="btn btn-primary btn-lg">Descargar Catálogo</a>
+    </div>
+  </main>
 <div class="bg-dark">
   <footer class="py-1 container">
     <div class="row">
@@ -129,8 +160,6 @@
         </a>
         <p class="small mt-1">
           asdasdasdasdasdasdasdasdasdasdasdadasdasdasda
-          asdasdasdasdasdasdasdasdasdasdasdadasdasdasdaasdasasda
-          asdasdasdasdasdasdasdasdasdasdasdadasdasdasda
         </p>
       </div>
     
@@ -140,28 +169,7 @@
 
     <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
       <p class="text-center text-md-start">&copy; 2025 Construction Engineering. All rights reserved.</p>
-      <ul class="list-unstyled d-flex justify-content-center justify-content-md-start">
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-facebook-f"></span>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-twitter"></span>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-linkedin-in"></span>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-instagram"></span>
-          </a>
-        </li>
-      </ul>
+      
     </div>
   </footer>
 </div>
@@ -169,6 +177,56 @@
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
+<script>
+    // Simula datos de las secciones
+    const secciones = {
+      procesos: {
+        title: "Procesos de Ingeniería",
+        tarjetas: [
+          { title: "Proceso 1", description: "Descripción del proceso 1." },
+          { title: "Proceso 2", description: "Descripción del proceso 2." }
+        ]
+      },
+      materiales: {
+        title: "Materiales de Construcción",
+        tarjetas: [
+          { title: "Material 1", description: "Descripción del material 1." },
+          { title: "Material 2", description: "Descripción del material 2." }
+        ]
+      },
+      maquinaria: {
+        title: "Maquinaria Especializada",
+        tarjetas: [
+          { title: "Máquina 1", description: "Descripción de la máquina 1." },
+          { title: "Máquina 2", description: "Descripción de la máquina 2." }
+        ]
+      }
+    };
+
+    // Cargar contenido dinámico
+    const params = new URLSearchParams(window.location.search);
+    const seccion = params.get("seccion");
+
+    if (seccion && secciones[seccion]) {
+      document.getElementById("section-title").textContent = secciones[seccion].title;
+
+      const content = document.getElementById("section-content");
+      secciones[seccion].tarjetas.forEach(tarjeta => {
+        const cardHTML = `
+          <div class="col-md-4">
+            <div class="card shadow-lg h-100">
+              <div class="card-body text-center">
+                <h5 class="card-title">${tarjeta.title}</h5>
+                <p class="card-text">${tarjeta.description}</p>
+              </div>
+            </div>
+          </div>`;
+        content.insertAdjacentHTML("beforeend", cardHTML);
+      });
+    } else {
+      document.getElementById("section-title").textContent = "Sección no encontrada";
+    }
+  </script>
 
 </body>
 
