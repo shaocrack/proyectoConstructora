@@ -684,15 +684,20 @@ label.error{
   font-size: 8vmin;
   letter-spacing: 0.1em;
   line-height: 1;
+  position: relative; /* Habilita el uso de top */
+  left: 120px; /* Mueve el número 10px hacia la derecha */
+  top: 280px; /* Ajusta el valor según necesites */
 }
 
 .slide-number sup{
   display: inline-block;
   position: relative;
-  top:-3px;
+  
+  top:290px;
+  left: 120px; /* Mueve el número 10px hacia la derecha */
   font-size: 2vmin;
   letter-spacing: 0.1em;
-  color: #5e5e5e;
+  color:white;
   vertical-align: top;
   margin-left: 0.46em;
 }
@@ -1182,14 +1187,13 @@ label.error{
 }
 
 .arrow-right{
-  right: 15px;
+  right: 50px;
 }
 
 
-
 .arrow-left:after,
-.arrow-right:before{
-  content:'';
+.arrow-right:before {
+  content: '';
   display: inline-block;
   vertical-align: middle;
   background-color: transparent;
@@ -1198,7 +1202,11 @@ label.error{
   line-height: 1;
   letter-spacing: 0.32em;
   text-transform: uppercase;
-  color: #fff;
+  color: white;
+
+  /* Para mover en el eje y */
+  position: relative; /* Habilita top y bottom */
+  top: 300px; /* Ajusta el valor según necesites */
 }
 
 .arrow-left:after{
@@ -1231,12 +1239,16 @@ label.error{
   background: url(../img/img-icon/prev.png) 0 0 no-repeat;
   background-size: 1.3em 1em;
   margin-right: 0.82em;
+  position: relative; /* Para habilitar top */
+  top: 300px; /* Mueve 10px hacia abajo */
 }
 
 .arrow-right:after{
   background: url(../img/img-icon/next.png) 0 0 no-repeat;
   background-size: 1.3em 1em;
   margin-left: 0.72em;
+  position: relative; /* Para habilitar top */
+  top: 300px; /* Mueve 10px hacia abajo */
 }
 
 .slide-title{
@@ -2911,7 +2923,7 @@ h6, .h6 {
 
 
   .arrow-left{
-    top: 43.5vmin;
+    top: 45.5vmin;
     bottom: auto;
   }
 
