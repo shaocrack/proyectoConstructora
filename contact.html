@@ -33,6 +33,7 @@
   <link rel="stylesheet" href="css/main.css">
   <!--  custom styles-->
   <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -90,47 +91,67 @@
 </header>
 <main>
   <div class="container mt-5">
-    <div class="section">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="card-title mb-0">Contact Details</h5>
+    <section id="contact" class="contact-section">
+        <h2 class="text-gradient" data-aos="fade-up">Contact us</h2>
+        <p></p>
+        
+        <!-- Google Maps -->
+        <div class="map-container" data-aos="fade-up">
+            <iframe 
+                src="https://www.google.com.ec/maps/embed?pb=!1m18!1m12!1m3!1d3827.367593563718!2d-78.47488052477944!3d-0.16782149869174796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d590744d25e2cb%3A0x5f5f322f654bc5a3!2sU.D.L.A.%20Granados!5e0!3m2!1ses!2sec!4v1694626624957!5m2!1ses!2sec" 
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
         </div>
-        <div class="card-body">
-          <p class="card-text">Mijail Mayorga</p>
-          <p class="card-text">Ecuador</p>
-        </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-around">
-            <div class="">
-              <span>Tel:</span>
-              <a href="#">+ 254 794 574 661</a>
-            </div>
-            <div class="">
-              <span>Email:</span>
-              <a href="#">mmg84@icloud.com</a>
-            </div>
-            <!-- <div class="">
-              <span>Website:</span>
-              <a href="#">www.debcolimited.com</a>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+        
+        <!-- Redes sociales -->
+        <ul class="social-links">
+            <li data-aos="fade-up">
+                <a href="https://facebook.com" target="_blank">
+                    <img class="fb-icon" src="img/contact/fb.svg" alt="Facebook icon" />
+                </a>
+                <p>Facebook</p>
+            </li>
+            <li data-aos="fade-up">
+                <a href="https://linkedin.com" target="_blank">
+                    <img class="li-icon" src="img/contact/linkedin.svg" alt="LinkedIn icon" />
+                </a>
+                <p>LinkedIn</p>
+            </li>
+            <li data-aos="fade-up">
+                <a href="https://github.com" target="_blank">
+                    <img class="gh-icon" src="img/contact/icons8-instagram-240.svg" alt="Github icon" />
+                </a>
+                <p>Instagram</p>
+            </li>
+            <li data-aos="fade-up">
+                <a href="mailto:youremail@gmail.com" target="_blank">
+                    <img class="gmail-icon" src="img/contact/gmail.svg" alt="Gmail icon" />
+                </a>
+                <p>Email</p>
+            </li>
+        </ul>
+    </section>
+</div>
+
 </main>
+<p></p>
+<p></p>
 <div class="bg-dark">
   <footer class="py-1 container">
     <div class="row">
       <div class="col-12 col-md-5 mb-1">
+        <p></p>
         <a class="navbar-brand fs-3" href="#">
-          <img src="./img/Logo 2.png" height="36" width="36">
+          <img src="./img/Logo 2.png" height="46" width="65">
           <span>Construction Engineering</span>
         </a>
         <p class="small mt-1">
-          asdasdasdasdasdasdasdasdasdasdasdadasdasdasda
-          asdasdasdasdasdasdasdasdasdasdasdadasdasdasdaasdasasda
-          asdasdasdasdasdasdasdasdasdasdasdadasdasdasda
+       
         </p>
       </div>
     
@@ -140,31 +161,10 @@
 
     <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 mt-4 border-top">
       <p class="text-center text-md-start">&copy; 2025 Construction Engineering. All rights reserved.</p>
-      <ul class="list-unstyled d-flex justify-content-center justify-content-md-start">
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-facebook-f"></span>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-twitter"></span>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-linkedin-in"></span>
-          </a>
-        </li>
-        <li class="ms-3">
-          <a href="" class="nav-link">
-            <span class="fa-brands fa-instagram"></span>
-          </a>
-        </li>
-      </ul>
+      
     </div>
   </footer>
-</div>
+
 <script src="vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
