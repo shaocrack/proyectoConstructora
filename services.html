@@ -244,6 +244,32 @@
   }
 }
 
+#description {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: white;
+  }
+
+  #button-container {
+    display: flex;
+    gap: 10px;
+}
+
+#button-container .change-btn {
+    display: inline-block;
+    background-color: rgb(255, 144, 76);
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+#button-container .change-btn:hover {
+    background-color:  rgba(0, 0, 0, 0.7);
+}
 
 
 </style>
@@ -273,11 +299,12 @@
               <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
+              <a class="nav-link active" href="#">Service</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="#">Service</a>
-              </li>
+              <a class="nav-link" href="projects.html">Projects</a>
+            </li>
+            
             <li class="nav-item">
               <a class="nav-link " href="contact.html">Contact</a>
             </li>
@@ -334,17 +361,20 @@
     <div class="service-section">
       <div class="service-text">
         <h3>Architecture</h3>
-        <p>We design and build outstanding commercial spaces tailored to your business needs, such as:</p>
-        <ul>
-          <li>Offices</li>
-          <li>Mixed-use Developments</li>
-          <li>Restaurants and Hotels</li>
-          <li>Warehouses</li>
-        </ul>
-   
+        <div id="description-container">
+          <p id="description">Esta seccion es de arquitectura</p>
+        </div>
+        <div id="button-container">
+          <button class="change-btn" onclick="changeContent(0)">Offices</button>
+          <button class="change-btn" onclick="changeContent(1)">Mixed-use </button>
+          <button class="change-btn" onclick="changeContent(2)">Restaurants </button>
+          <button class="change-btn" onclick="changeContent(3)">Warehouses</button>
+        </div>
       </div>
       <div class="service-image">
-        <img src="img/slider/Architecture.jpg" alt="Commercial Developments">
+        <div id="image-container">
+          <img id="image" src="img/slider/Architecture.jpg" alt="Commercial Developments" class="responsive-img">
+        </div>
       </div>
     </div>
   </section>
@@ -394,6 +424,26 @@
       
     </div>
   </footer>
+  <script>
+    const descriptions = [
+      "seccion 1",
+      "seccion 2",
+      "seccion 3",
+      "seccion 4"
+    ];
+  
+    const images2 = [
+      "img/slider/Architecture.jpg",
+      "img/slider/Civil.jpg",
+      "img/slider/Construction .jpg",
+      "img/slider/Electrical .jpg"
+    ];
+  
+    function changeContent(index) {
+      document.getElementById("description").textContent = descriptions[index];
+      document.getElementById("image").src = images2[index];
+    }
+  </script>
   <script>
     function downloadPDF() {
       // Cambia 'brochure.pdf' por el nombre del archivo PDF que deseas ofrecer.
