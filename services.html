@@ -72,14 +72,8 @@
     color: #fff;
     text-decoration: none;
   }
-
   .section {
-    padding: 2rem 1rem;
-  }
-
-  .section h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    padding: 3rem 1rem;
   }
 
   .service-section {
@@ -87,12 +81,11 @@
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    gap: 2rem;
   }
 
-  .service-section:nth-child(even) {
-    flex-direction: row-reverse;
-  }
+ 
 
   .service-text {
     flex: 1;
@@ -100,12 +93,26 @@
   }
 
   .service-text h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: rgb(255, 144, 76);
+    margin-bottom: 1rem;
+    text-align: center;
+
   }
 
   .service-text p {
+    font-size: 1.1rem;
     margin-bottom: 1rem;
+    color: white;
+  }
+
+  .service-text ul {
+    list-style-type: square;
+    padding-left: 1.5rem;
+  }
+
+  .service-text ul li {
+    margin-bottom: 0.5rem;
   }
 
   .service-image {
@@ -115,23 +122,130 @@
 
   .service-image img {
     max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+  }
+
+  .service-image img:hover {
+    transform: scale(1.05);
   }
 
   .btn {
     display: inline-block;
-    background-color:  rgb(255, 144, 76);
+    background-color: rgb(255, 144, 76);
     color: #fff;
-    padding: 0.5rem 1rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
   }
 
-  .btn:hover {
-    background-color:  rgb(255, 144, 76);
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.678);
+}
+
+
+
+.image-stack {
+  position: relative;
+  width: 100%; /* Asegura que la imagen sea responsiva */
+  max-width: 650px; /* Máximo ancho de la imagen */
+  height: 300px;
+  margin: 0 auto; /* Centra la imagen en su contenedor */
+}
+
+.stack-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: scale(0.95);
+  cursor: pointer;
+  z-index: 0;
+}
+
+.stack-image.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.stack-image:nth-child(2) {
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+}
+
+.stack-image:nth-child(3) {
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+
+.stack-image:nth-child(4) {
+  top: 30px;
+  left: 30px;
+  z-index: -1;
+}
+
+.stack-image:hover {
+  transform: scale(1.05);
+  z-index: 3;
+}
+
+/* Estilo para los botones de navegación */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+.prev-btn {
+  left: 10px; /* Ajustado a 10px para estar más cerca de la imagen */
+}
+
+.next-btn {
+  right: 10px; /* Ajustado a 10px para estar más cerca de la imagen */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .image-stack {
+    height: 200px; /* Ajusta la altura para pantallas pequeñas */
   }
+
+  .stack-image {
+    width: 80%; /* Reduce el ancho de las imágenes en pantallas pequeñas */
+  }
+
+  .nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem; /* Ajusta el tamaño del botón */
+  }
+}
+
+
+
 </style>
 
 
@@ -190,137 +304,36 @@
 </header>
 
 <main>
-  <style>
-    .section {
-      padding: 3rem 1rem;
-    }
-
-    .service-section {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 3rem;
-      gap: 2rem;
-    }
-
-    /* Alternar dirección para secciones pares */
-    .service-section:nth-child(even) {
-      flex-direction: row-reverse;
-    }
-
-    .service-text {
-      flex: 1;
-      padding: 1rem;
-    }
-
-    .service-text h3 {
-      font-size: 2rem;
-      color: rgb(255, 144, 76);
-      margin-bottom: 1rem;
-    }
-
-    .service-text p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-
-    .service-text ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
-    }
-
-    .service-text ul li {
-      margin-bottom: 0.5rem;
-    }
-
-    .service-image {
-      flex: 1;
-      text-align: center;
-    }
-
-    .service-image img {
-      max-width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
-    }
-
-    .service-image img:hover {
-      transform: scale(1.05);
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: rgb(255, 144, 76);
-      color: #fff;
-      padding: 0.7rem 1.5rem;
-      font-size: 1rem;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-  </style>
-  <style>
-    
-    #flipbook {
-      width: 800px; /* Ancho total del cuaderno abierto */
-      height: 500px;
-      margin: auto;
-    }
-    .page {
-      background: #fff;
-      border: 1px solid #ddd;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    .service-section {
-      text-align: center;
-    }
-    .service-image img {
-      width: 100%;
-      height: auto;
-      margin-bottom: 15px;
-    }
-    ul {
-      list-style: disc;
-      margin: 0 auto;
-      text-align: left;
-      max-width: 70%;
-    }
-  </style>
 
   <section id="residential" class="section">
     <div class="service-section">
-      
+      <!-- Contenedor para las imágenes apiladas -->
       <div class="service-image">
-        <img src="img/construction.jpg" alt="Residential Developments">
+        <div class="image-stack">
+          <img src="img/slider/Engineering .jpg" alt="Office" class="stack-image active" data-text="aqui va texto de descripcion de imagen 1">
+          <img src="img/slider/Civil.jpg" alt="Mixed-use Development" class="stack-image" data-text="aqui va texto de descripcion de imagen 2">
+          <img src="img/slider/Data analysis.jpg" alt="Restaurant" class="stack-image" data-text="aqui va texto de descripcion de imagen 3">
+          <!-- Botones de navegación dentro de image-stack -->
+          <button class="nav-btn prev-btn">⟨</button>
+          <button class="nav-btn next-btn">⟩</button>
+        </div>
       </div>
       <div class="service-text">
-        <h3>Residential Developsments</h3>
-        <p>We specialize in creating beautiful and functional residential spaces, including:</p>
-        <ul>
-          <li>Bungalows</li>
-          <li>Maisonettes, Villas, Townhouses, Mansions</li>
-          <li>Apartments</li>
-        </ul>
+        <h3>Engineering</h3>
+        <p id="image-description">Offices</p>
+        <p id="image-description2">descripcio</p>
         
+   
       </div>
     </div>
   </section>
+  
+
 
   <section id="commercial" class="section">
     <div class="service-section">
       <div class="service-text">
-        <h3>Commercial Developments</h3>
+        <h3>Architecture</h3>
         <p>We design and build outstanding commercial spaces tailored to your business needs, such as:</p>
         <ul>
           <li>Offices</li>
@@ -331,7 +344,7 @@
    
       </div>
       <div class="service-image">
-        <img src="img/architecture.jpg" alt="Commercial Developments">
+        <img src="img/slider/Architecture.jpg" alt="Commercial Developments">
       </div>
     </div>
   </section>
@@ -339,10 +352,10 @@
   <section id="institutional" class="section">
     <div class="service-section">
       <div class="service-image">
-        <img src="img/interior-design.jpg" alt="Institutional Developments">
+        <img src="img/Web Pictures/Eco materials .jpg" alt="Institutional Developments">
       </div>
       <div class="service-text">
-        <h3>Institutional Developments</h3>
+        <h3>Eco Materials</h3>
         <p>Our expertise extends to designing and constructing world-class institutional facilities, including:</p>
         <ul>
           <li>Schools</li>
@@ -388,6 +401,44 @@
       window.open(pdfUrl, '_blank'); // Abre el PDF en una nueva pestaña
     }
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+      const images = document.querySelectorAll(".stack-image");
+      let currentIndex = 0;
+    
+      // Función para actualizar las imágenes y las descripciones
+      function updateImages() {
+        images.forEach((image, index) => {
+          image.classList.remove("active");
+          if (index === currentIndex) {
+            image.classList.add("active");
+            
+            // Actualizar el primer texto
+            document.getElementById("image-description").textContent = image.getAttribute("data-text");
+            
+            // Actualizar el segundo texto (si deseas un cambio diferente, puedes usar otro atributo o lógica)
+            document.getElementById("image-description2").textContent = "Texto adicional para la imagen " + (index + 1);
+          }
+        });
+      }
+    
+      // Lógica para el botón anterior
+      prevBtn.addEventListener("click", function() {
+        currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+        updateImages();
+      });
+    
+      // Lógica para el botón siguiente
+      nextBtn.addEventListener("click", function() {
+        currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+        updateImages();
+      });
+    
+      updateImages(); // Inicializa la vista con la primera imagen
+    });
+  </script>
 <script src="vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
@@ -395,27 +446,39 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
 <script>
-  $(document).ready(function() {
-    $('#flipbook').turn({
-      width: 800, // Ancho total (cuaderno abierto)
-      height: 500, // Alto del cuaderno
-      autoCenter: true,
-      elevation: 50, // Efecto de sombra
-      gradients: true, // Sombras en el cambio de páginas
-      duration: 1000 // Duración de la animación (milisegundos)
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.stack-image');
+    const description = document.getElementById('image-description');
+    
+    images.forEach((image, index) => {
+      image.addEventListener('click', () => {
+        // Remove active class from all images
+        images.forEach(img => img.classList.remove('active'));
+        
+        // Add active class to the clicked image
+        image.classList.add('active');
+        
+        // Update the description
+        description.textContent = image.dataset.text;
+      });
     });
   });
 </script>
+
 <script>
-  // Scroll to specific section based on URL hash
-  document.addEventListener("DOMContentLoaded", function () {
-    const hash = window.location.hash;
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+  let images = document.querySelectorAll('.stack-image');
+  let currentIndex = 0;
+  
+  document.querySelector('.next-btn').addEventListener('click', function() {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex + 1) % images.length;
+    images[currentIndex].classList.add('active');
+  });
+  
+  document.querySelector('.prev-btn').addEventListener('click', function() {
+    images[currentIndex].classList.remove('active');
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    images[currentIndex].classList.add('active');
   });
 </script>
 
