@@ -818,17 +818,19 @@ label.error{
 
 
 .navbar-desctop{
-  display: none;
+  display: block; /* Asegúrate de que sea visible */
   position: absolute;
   z-index: 2;
   top:0;
   left:0;
   width: 100%;
   padding:5.9vmin 0 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+  
 }
 
 .navbar-desctop .brand{
-  display: none;
+  display: block;
   float:left;
   position: relative;
   top:-0.22em;
@@ -871,6 +873,9 @@ label.error{
   color: #fff;
   background-color: transparent;
   margin-bottom: 1.5em;
+  
+  
+
 }
 
 .navbar-desctop-menu li ul{
